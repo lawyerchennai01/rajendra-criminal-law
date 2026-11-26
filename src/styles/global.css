@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-feature-settings: "kern" 1;
+}
+
+/* Stronger focus for keyboard users */
+:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* Slightly darker gold for better contrast on navy */
+.text-gold {
+  color: #d4af37;
+}
+
+.border-gold {
+  border-color: #d4af37;
+}
+
+/* Tempting contact button animations */
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(-3deg); }
+  30% { transform: rotate(3deg); }
+  45% { transform: rotate(-2deg); }
+  60% { transform: rotate(2deg); }
+  75% { transform: rotate(-1deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.contact-btn {
+  @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-sm font-medium text-white transition-all duration-300;
+  animation: wave 2.5s ease-in-out infinite;
+}
+
+.contact-btn:hover {
+  animation: wobble 0.6s ease-in-out, shake 0.5s ease-in-out;
+  transform: scale(1.05);
+}
+
+.contact-btn-whatsapp {
+  @apply bg-[#25D366] hover:bg-[#20bd5a];
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
+}
+
+.contact-btn-call {
+  @apply bg-crimson hover:bg-crimson/90;
+  box-shadow: 0 4px 14px rgba(155, 27, 48, 0.45);
+}
+
+.contact-btn-email {
+  @apply bg-navy hover:bg-navy/90 text-cream;
+  box-shadow: 0 4px 14px rgba(11, 31, 58, 0.35);
+}
